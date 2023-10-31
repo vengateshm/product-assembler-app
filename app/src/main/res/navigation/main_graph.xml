@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/screenOne">
+
+    <fragment
+        android:id="@+id/screenOne"
+        android:name="com.android.productassemblerapp.fragments.ScreenOne"
+        android:label="ScreenOne" >
+        <action
+            android:id="@+id/action_screenOne_to_screenTwo"
+            app:destination="@id/screenTwo" />
+    </fragment>
+    <fragment
+        android:id="@+id/screenTwo"
+        android:name="com.android.productassemblerapp.fragments.ScreenTwo"
+        android:label="ScreenTwo" >
+        <action
+            android:id="@+id/action_screenTwo_to_screenThree"
+            app:destination="@id/screenThree" />
+    </fragment>
+    <fragment
+        android:id="@+id/screenThree"
+        android:name="com.android.productassemblerapp.fragments.ScreenThree"
+        android:label="ScreenThree" >
+        <action
+            android:id="@+id/action_screenThree_to_screenFour"
+            app:destination="@id/screenFour" />
+    </fragment>
+    <fragment
+        android:id="@+id/screenFour"
+        android:name="com.android.productassemblerapp.fragments.ScreenFour"
+        android:label="ScreenFour" >
+        <action
+            android:id="@+id/action_screenFour_to_screenFive"
+            app:destination="@id/screenFive" />
+    </fragment>
+    <fragment
+        android:id="@+id/screenFive"
+        android:name="com.android.productassemblerapp.fragments.ScreenFive"
+        android:label="ScreenFive" />
+</navigation>
