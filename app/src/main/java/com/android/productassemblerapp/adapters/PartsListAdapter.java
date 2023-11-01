@@ -1,6 +1,9 @@
 package com.android.productassemblerapp.adapters;
 
+import android.annotation.SuppressLint;
+import android.content.ClipData;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -13,7 +16,7 @@ import com.android.productassemblerapp.models.PartItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PartsListAdapter extends RecyclerView.Adapter<PartsListAdapter.PartItemViewHolder> {
+public class PartsListAdapter extends RecyclerView.Adapter<PartsListAdapter.PartItemViewHolder> implements View.OnTouchListener {
 
     private List<PartItem> partItemList = new ArrayList<>();
     private List<PartItem> selectedPartItemList = new ArrayList<>();
@@ -31,6 +34,10 @@ public class PartsListAdapter extends RecyclerView.Adapter<PartsListAdapter.Part
         return selectedPartItemList;
     }
 
+    public List<PartItem> getPartItemList() {
+        return partItemList;
+    }
+
     @NonNull
     @Override
     public PartItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -39,8 +46,11 @@ public class PartsListAdapter extends RecyclerView.Adapter<PartsListAdapter.Part
     }
 
     @Override
+    @SuppressLint("ClickableViewAccessibility")
     public void onBindViewHolder(@NonNull PartItemViewHolder holder, int position) {
         holder.bind(partItemList.get(position));
+        holder.binding.cvRoot.setTag(position);
+        holder.binding.cvRoot.setOnTouchListener(this);
     }
 
     @Override
@@ -53,6 +63,22 @@ public class PartsListAdapter extends RecyclerView.Adapter<PartsListAdapter.Part
             selectedPartItemList.add(partItem);
         else
             selectedPartItemList.remove(partItem);
+    }
+
+    public PartItem getItemAt(int adapterPosition) {
+        return partItemList.get(adapterPosition);
+    }
+
+    @Override
+    @SuppressLint("ClickableViewAccessibility")
+    public boolean onTouch(View v, MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            ClipData clipData = ClipData.newPlainText("", "");
+            View.DragShadowBuilder dragShadowBuilder = new View.DragShadowBuilder(v);
+            v.startDragAndDrop(clipData, dragShadowBuilder, v, 0);
+            return true;
+        }
+        return false;
     }
 
     static class PartItemViewHolder extends RecyclerView.ViewHolder {

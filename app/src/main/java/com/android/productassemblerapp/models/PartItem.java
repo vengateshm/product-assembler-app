@@ -3,6 +3,7 @@ package com.android.productassemblerapp.models;
 public class PartItem {
     private String partName;
     private int partImageRes;
+    public String selectedColor;
 
     public PartItem() {
     }
@@ -26,5 +27,13 @@ public class PartItem {
 
     public void setPartImageRes(int partImageRes) {
         this.partImageRes = partImageRes;
+    }
+
+    public String getSelectedColor() {
+        return selectedColor;
+    }
+
+    public void setSelectedColor(String selectedColor) {
+        this.selectedColor = selectedColor;
     }
 }

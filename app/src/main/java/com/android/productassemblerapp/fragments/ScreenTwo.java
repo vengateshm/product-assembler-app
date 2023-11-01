@@ -46,11 +46,10 @@ public class ScreenTwo extends Fragment {
         partsListAdapter.setType(PartListAdapterType.SELECTABLE);
 
         List<PartItem> partItemList = new ArrayList<>();
-        partItemList.add(new PartItem("Part1", R.drawable.ic_image));
-        partItemList.add(new PartItem("Part2", R.drawable.ic_image));
-        partItemList.add(new PartItem("Part3", R.drawable.ic_image));
-        partItemList.add(new PartItem("Part4", R.drawable.ic_image));
-        partItemList.add(new PartItem("Part5", R.drawable.ic_image));
+        partItemList.add(new PartItem("Monitor", R.drawable.monitor));
+        partItemList.add(new PartItem("Keyboard", R.drawable.keyboard));
+        partItemList.add(new PartItem("Mouse", R.drawable.mouse));
+        partItemList.add(new PartItem("CPU", R.drawable.cpu));
 
         partsListAdapter.setPartItemList(partItemList);
 

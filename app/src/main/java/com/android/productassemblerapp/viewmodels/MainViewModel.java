@@ -9,6 +9,7 @@ import java.util.List;
 
 public class MainViewModel extends ViewModel {
     private List<PartItem> selectedPartItemsList = new ArrayList<>();
+    private List<PartItem> assembledPartItemsList = new ArrayList<>();
 
     public void setSelectedPartItemsList(List<PartItem> selectedPartItemsList) {
         this.selectedPartItemsList = selectedPartItemsList;
@@ -16,5 +17,13 @@ public class MainViewModel extends ViewModel {
 
     public List<PartItem> getSelectedPartItemsList() {
         return selectedPartItemsList;
+    }
+
+    public List<PartItem> getAssembledPartItemsList() {
+        return assembledPartItemsList;
+    }
+
+    public void setAssembledPartItemsList(List<PartItem> assembledPartItemsList) {
+        this.assembledPartItemsList = assembledPartItemsList;
     }
 }

@@ -28,8 +28,8 @@ public class ScreenOne extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.ivProductImage.setImageResource(R.drawable.ic_image);
-        binding.tvProductDescription.setText("This is a good product");
+        binding.ivProductImage.setImageResource(R.drawable.desktop_computer);
+        binding.tvProductDescription.setText("This is a desktop computer");
 
         binding.btnStart.setOnClickListener(view1 -> {
             Navigation.findNavController(view).navigate(R.id.action_screenOne_to_screenTwo);
